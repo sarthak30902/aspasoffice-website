@@ -1,0 +1,36 @@
+/* ASPAS Office - shared theme (colors, dark mode, toggle button, logo) */
+:root{
+  --text:#0A1B36;
+  --text-muted:#66748B;
+  --text-faint:#8390A2;
+  --bg:#ffffff;
+  --bg-alt:#F7F9FC;
+  --card-bg:#ffffff;
+  --border:#E2E8F0;
+  --header-bg:rgba(255,255,255,.98);
+}
+[data-theme="dark"]{
+  --text:#F3F6FA;
+  --text-muted:#AEB9CC;
+  --text-faint:#8B96AC;
+  --bg:#0A1526;
+  --bg-alt:#0F1C33;
+  --card-bg:#12213B;
+  --border:#22314E;
+  --header-bg:rgba(10,21,38,.94);
+}
+html,body{margin:0;padding:0;}
+body{background:var(--bg);}
+
+[data-theme="dark"] #aspas-logo-wrap{
+  background:#ffffff;
+  padding:8px 14px;
+  border-radius:12px;
+}
+
+#aspas-theme-toggle{
+  appearance:none;-webkit-appearance:none;border:1px solid var(--border);
+  background:var(--card-bg);color:var(--text);border-radius:10px;
+  width:38px;height:38px;display:inline-flex;align-items:center;justify-content:center;
+  cursor:pointer;font-size:16px;flex-shrink:0;line-height:1;
+}
