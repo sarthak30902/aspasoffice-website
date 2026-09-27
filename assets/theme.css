@@ -19,7 +19,7 @@
   --border:#22314E;
   --header-bg:rgba(10,21,38,.94);
 }
-html,body{margin:0;padding:0;}
+html,body{margin:0;padding:0;overflow-x:hidden;}
 body{background:var(--bg);}
 
 [data-theme="dark"] #aspas-logo-wrap{
