@@ -4,7 +4,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Virtual Office &amp; Business Address in Delhi NCR | ASPAS Office</title>
-<link rel="icon" type="image/png" href="https://res.cloudinary.com/yhud6ygb/image/upload/f_auto,q_auto/stretch_logo-removebg-preview">
+<link rel="icon" type="image/x-icon" href="assets/favicon/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
 <link rel="stylesheet" href="assets/theme.css">
 <script src="assets/theme.js"></script>
 </head>
@@ -184,7 +187,6 @@
 @media (max-width:759px){
   #aspas-onepage{
     width:100% !important;
-    overflow-x:hidden !important;
   }
 
   #aspas-onepage [style*="width:min(1140px,calc(100% - 44px))"],
@@ -251,7 +253,6 @@
   width:100% !important;
   max-width:100% !important;
   min-width:0 !important;
-  overflow-x:hidden !important;
 }
 #aspas-onepage img{
   max-width:100% !important;
@@ -980,30 +981,9 @@
   var toggle=document.getElementById('aspas-nav-toggle');
   if(!header||!nav||!toggle) return;
 
-  var lastY=window.scrollY||window.pageYOffset||0;
-  var ticking=false;
-  var hidden=false;
-
-  function showHeader(){
-    if(hidden){
-      header.style.transform='translateY(0)';
-      hidden=false;
-    }
-  }
-
-  function hideHeader(){
-    if(!hidden && (window.scrollY||window.pageYOffset||0)>90){
-      header.style.transform='translateY(-105%)';
-      hidden=true;
-      nav.classList.remove('aspas-open');
-      toggle.setAttribute('aria-expanded','false');
-    }
-  }
-
   toggle.addEventListener('click',function(){
     var open=nav.classList.toggle('aspas-open');
     toggle.setAttribute('aria-expanded',String(open));
-    showHeader();
   });
 
   nav.querySelectorAll('a[href^="#"]').forEach(function(link){
@@ -1018,40 +998,15 @@
         e.preventDefault();
         nav.classList.remove('aspas-open');
         toggle.setAttribute('aria-expanded','false');
-        showHeader();
         target.scrollIntoView({behavior:'smooth',block:'start'});
       }
     });
   });
 
-  function onScroll(){
-    var y=window.scrollY||window.pageYOffset||0;
-    var delta=y-lastY;
-
-    if(y<=60){
-      showHeader();
-    }else if(delta>5){
-      hideHeader();
-    }else if(delta<-5){
-      showHeader();
-    }
-
-    lastY=y;
-    ticking=false;
-  }
-
-  window.addEventListener('scroll',function(){
-    if(!ticking){
-      window.requestAnimationFrame(onScroll);
-      ticking=true;
-    }
-  },{passive:true});
-
   window.addEventListener('resize',function(){
     if(window.innerWidth>900){
       nav.classList.remove('aspas-open');
       toggle.setAttribute('aria-expanded','false');
-      showHeader();
     }
   });
 })();
