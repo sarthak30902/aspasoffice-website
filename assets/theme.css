@@ -34,3 +34,43 @@ body{background:var(--bg);}
   width:38px;height:38px;display:inline-flex;align-items:center;justify-content:center;
   cursor:pointer;font-size:16px;flex-shrink:0;line-height:1;
 }
+
+/* ---- Layout containers (replaces repeated inline width:min(...) wrappers) ---- */
+.container-1140{width:min(1140px,calc(100% - 44px));margin:0 auto;}
+.container-1100{width:min(1100px,calc(100% - 44px));margin:0 auto;}
+.container-980{width:min(980px,calc(100% - 44px));margin:0 auto;}
+.container-900{width:min(900px,calc(100% - 44px));margin:0 auto;}
+.container-800{width:min(800px,calc(100% - 44px));margin:0 auto;}
+
+/* ---- Grids (replaces the [style*="grid-template-columns"] attribute-selector hack) ---- */
+.grid-2-20{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:17px;}
+.grid-3-alt{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
+.grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;}
+.grid-4-alt{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;}
+.hero-grid{display:grid;grid-template-columns:1.04fr .96fr;gap:58px;align-items:center;}
+.hero-grid-alt{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center;}
+.form-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:24px;align-items:start;}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+.quote-form-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+.cta-grid{display:grid;grid-template-columns:1fr auto;align-items:center;gap:40px;}
+
+/* Stack every grid and pull containers to the mobile gutter below 760px */
+@media (max-width:759px){
+  .container-1140,.container-1100,.container-980,.container-900,.container-800{
+    width:calc(100% - 24px);
+    max-width:100%;
+    margin-left:auto;
+    margin-right:auto;
+  }
+  .grid-2-20,.grid-3,.grid-3-alt,.grid-4,.grid-4-alt,.hero-grid,.hero-grid-alt,.form-grid,.form-row,.quote-form-grid,.cta-grid{
+    display:block;
+  }
+  .grid-2-20 > *,.grid-3 > *,.grid-3-alt > *,.grid-4 > *,.grid-4-alt > *,.hero-grid > *,.hero-grid-alt > *,.form-grid > *,.form-row > *,.quote-form-grid > *,.cta-grid > *{
+    width:100%;
+    max-width:100%;
+    margin-left:0;
+    margin-right:0;
+    margin-bottom:16px;
+  }
+}
