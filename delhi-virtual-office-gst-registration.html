@@ -63,33 +63,102 @@
   #aspas-page h2{font-size:clamp(28px,8vw,38px) !important;}
 }
 </style>
+<link rel="stylesheet" href="assets/navigation.css">
+<script src="assets/navigation.js" defer></script>
 </head>
 <body>
 <div id="aspas-page" style="width:100%;margin:0;padding:0;background:var(--bg);color:var(--text);font-family:'Avenir Next',Avenir,'Segoe UI',Arial,Helvetica,sans-serif;line-height:1.55;">
 
   <!-- HEADER (matches homepage) -->
-  <div id="aspas-embedded-nav" style="position:sticky;top:0;z-index:99999;width:100%;background:var(--header-bg);border-bottom:1px solid var(--border);box-shadow:0 3px 16px rgba(10,27,54,.08);">
+  <div id="aspas-embedded-nav" style="position:sticky;top:0;z-index:99999;width:100%;background:var(--header-bg);border-bottom:1px solid var(--border);box-shadow:0 3px 16px rgba(10,27,54,.08);transition:transform .34s cubic-bezier(.22,1,.36,1);will-change:transform;">
     <div style="width:min(1180px,calc(100% - 28px));min-height:76px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:18px;">
       <a id="aspas-logo-wrap" href="index.html" aria-label="ASPAS Office Home" style="display:block;line-height:0;flex-shrink:0;transition:background .2s ease,padding .2s ease;">
-        <img id="aspas-logo" src="https://res.cloudinary.com/yhud6ygb/image/upload/f_auto,q_auto/stretch_logo-removebg-preview" alt="ASPAS Office" style="display:block;width:180px;height:auto;">
+        <img id="aspas-logo" src="https://res.cloudinary.com/yhud6ygb/image/upload/f_auto,q_auto/stretch_logo-removebg-preview"
+             alt="ASPAS Office"
+             style="display:block;width:180px;height:auto;">
       </a>
 
       <div style="display:flex;align-items:center;gap:10px;flex-shrink:0;">
         <button id="aspas-theme-toggle" type="button" aria-label="Toggle dark mode">🌙</button>
-        <button id="aspas-nav-toggle" type="button" aria-label="Open navigation" aria-expanded="false"
+        <button id="aspas-nav-toggle"
+                type="button"
+                aria-label="Open navigation"
+                aria-expanded="false"
                 style="display:none;background:var(--card-bg);border:1px solid var(--border);color:var(--text);border-radius:10px;padding:9px 12px;font:600 12px 'Avenir Next',Avenir,'Segoe UI',Arial,sans-serif;">
           MENU
         </button>
       </div>
 
-      <nav id="aspas-nav-links" aria-label="ASPAS page navigation" style="display:flex;align-items:center;gap:19px;">
+      <nav id="aspas-nav-links"
+           aria-label="ASPAS page navigation"
+           style="display:flex;align-items:center;gap:19px;">
+
         <a href="index.html" style="color:var(--text);text-decoration:none;font:600 13px 'Avenir Next',Avenir,'Segoe UI',Arial,sans-serif;">Home</a>
-        <a href="index.html#services" style="color:var(--text);text-decoration:none;font:600 13px 'Avenir Next',Avenir,'Segoe UI',Arial,sans-serif;">Services</a>
-        <a href="index.html#plans" style="color:var(--text);text-decoration:none;font:600 13px 'Avenir Next',Avenir,'Segoe UI',Arial,sans-serif;">Plans</a>
-        <a href="index.html#locations" style="color:var(--text);text-decoration:none;font:600 13px 'Avenir Next',Avenir,'Segoe UI',Arial,sans-serif;">Locations</a>
+
+        <div class="aspas-nav-dropdown">
+          <div class="aspas-nav-parent-wrap">
+            <a href="index.html#services" class="aspas-nav-label" style="color:var(--text);text-decoration:none;font:600 13px 'Avenir Next',Avenir,'Segoe UI',Arial,sans-serif;">Services</a>
+            <button type="button" class="aspas-nav-arrow" aria-label="Open Services submenu" aria-expanded="false">
+              <span class="aspas-chevron" aria-hidden="true">⌄</span>
+            </button>
+          </div>
+          <div class="aspas-dropdown-menu" aria-label="Services submenu">
+            <a href="index.html#services">Virtual Office</a>
+            <a href="index.html#services">Business &amp; Mailing Address</a>
+            <a href="index.html#services">Company Registration &amp; Business Setup</a>
+            <a href="index.html#services">GST Registration &amp; Business Compliance</a>
+            <a href="index.html#services">Meeting Rooms &amp; Workspace</a>
+            <a href="index.html#services">CA / CS &amp; Professional Business Services</a>
+          </div>
+        </div>
+
+        <div class="aspas-nav-dropdown">
+          <div class="aspas-nav-parent-wrap">
+            <a href="index.html#plans" class="aspas-nav-label" style="color:var(--text);text-decoration:none;font:600 13px 'Avenir Next',Avenir,'Segoe UI',Arial,sans-serif;">Plans</a>
+            <button type="button" class="aspas-nav-arrow" aria-label="Open Plans submenu" aria-expanded="false">
+              <span class="aspas-chevron" aria-hidden="true">⌄</span>
+            </button>
+          </div>
+          <div class="aspas-dropdown-menu" aria-label="Plans submenu">
+            <a href="index.html#plans">Business / Company Registration</a>
+            <a href="index.html#plans">GST Registration</a>
+            <a href="index.html#plans">Mailing Address</a>
+          </div>
+        </div>
+
+        <div class="aspas-nav-dropdown">
+          <div class="aspas-nav-parent-wrap">
+            <a href="index.html#locations" class="aspas-nav-label" style="color:var(--text);text-decoration:none;font:600 13px 'Avenir Next',Avenir,'Segoe UI',Arial,sans-serif;">Locations</a>
+            <button type="button" class="aspas-nav-arrow" aria-label="Open Locations submenu" aria-expanded="false">
+              <span class="aspas-chevron" aria-hidden="true">⌄</span>
+            </button>
+          </div>
+          <div class="aspas-dropdown-menu" aria-label="Locations submenu">
+            <a href="gurgaon-virtual-office-gst-registration.html">Gurgaon</a>
+            <a href="delhi-virtual-office-gst-registration.html">Delhi</a>
+            <a href="index.html#locations">Noida</a>
+            <a href="https://wa.me/919625120128?text=Hi%20ASPAS%20Office%2C%20I%27m%20looking%20for%20a%20virtual%20office%20in%20a%20different%20city.%20My%20preferred%20location%20is%20"
+               target="_blank" rel="noopener"
+               style="display:block;margin-top:5px;background:#36A66D;color:#fff;text-align:center;padding:10px 11px;border-radius:9px;font:700 12px 'Avenir Next',Avenir,'Segoe UI',Arial,sans-serif;">
+              Tell Us Your Preferred Location
+            </a>
+          </div>
+        </div>
+
+        <a href="index.html#about" style="color:var(--text);text-decoration:none;font:600 13px 'Avenir Next',Avenir,'Segoe UI',Arial,sans-serif;">About</a>
         <a href="index.html#faq" style="color:var(--text);text-decoration:none;font:600 13px 'Avenir Next',Avenir,'Segoe UI',Arial,sans-serif;">FAQ</a>
-        <a href="#enquire" style="display:inline-flex;align-items:center;justify-content:center;background:#0A1B36;color:#fff;text-decoration:none;padding:11px 14px;border-radius:10px;font:700 12px 'Avenir Next',Avenir,'Segoe UI',Arial,sans-serif;white-space:nowrap;">Get a Quote</a>
-        <a href="https://wa.me/919625120128?text=Hi%20ASPAS%20Office%2C%20I%27d%20like%20a%20Delhi%20virtual%20office%20quote." target="_blank" rel="noopener" style="display:inline-flex;align-items:center;justify-content:center;background:#36A66D;color:#fff;text-decoration:none;padding:11px 14px;border-radius:10px;font:700 12px 'Avenir Next',Avenir,'Segoe UI',Arial,sans-serif;white-space:nowrap;">Chat with us</a>
+        <a href="index.html#how-it-works" style="color:var(--text);text-decoration:none;font:600 13px 'Avenir Next',Avenir,'Segoe UI',Arial,sans-serif;">How It Works</a>
+
+        <a href="#enquire"
+           style="display:inline-flex;align-items:center;justify-content:center;background:#0A1B36;color:#fff;text-decoration:none;padding:11px 14px;border-radius:10px;font:700 12px 'Avenir Next',Avenir,'Segoe UI',Arial,sans-serif;white-space:nowrap;">
+          Get a Quote
+        </a>
+
+        <a href="https://wa.me/919625120128?text=Hi%20ASPAS%20Office%2C%20I%27d%20like%20to%20know%20more%20about%20your%20virtual%20office%20solutions."
+           target="_blank" rel="noopener"
+           style="display:inline-flex;align-items:center;justify-content:center;background:#36A66D;color:#fff;text-decoration:none;padding:11px 14px;border-radius:10px;font:700 12px 'Avenir Next',Avenir,'Segoe UI',Arial,sans-serif;white-space:nowrap;">
+          Chat with us
+        </a>
       </nav>
     </div>
   </div>
@@ -283,18 +352,7 @@
 })();
 </script>
 
-<script>
-/* Mobile nav toggle */
-(function(){
-  var nav=document.getElementById('aspas-nav-links');
-  var toggle=document.getElementById('aspas-nav-toggle');
-  if(!nav||!toggle) return;
-  toggle.addEventListener('click',function(){
-    var open=nav.classList.toggle('aspas-open');
-    toggle.setAttribute('aria-expanded',String(open));
-  });
-})();
-</script>
+
 
 </body>
 </html>
