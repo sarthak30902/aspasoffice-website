@@ -24,15 +24,16 @@ body{background:var(--bg);}
 
 [data-theme="dark"] #aspas-logo-wrap{
   background:#ffffff;
-  padding:8px 14px;
+  padding:0;
   border-radius:12px;
 }
 
 #aspas-theme-toggle{
   appearance:none;-webkit-appearance:none;border:1px solid var(--border);
   background:var(--card-bg);color:var(--text);border-radius:10px;
-  width:38px;height:38px;display:inline-flex;align-items:center;justify-content:center;
-  cursor:pointer;font-size:16px;flex-shrink:0;line-height:1;
+  box-sizing:border-box;padding:0;width:38px;height:38px;flex:0 0 38px;
+  display:inline-flex;align-items:center;justify-content:center;
+  cursor:pointer;font-size:16px;line-height:1;
 }
 
 /* ---- Layout containers (replaces repeated inline width:min(...) wrappers) ---- */
