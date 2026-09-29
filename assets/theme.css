@@ -19,7 +19,8 @@
   --border:#22314E;
   --header-bg:rgba(10,21,38,.94);
 }
-html,body{margin:0;padding:0;overflow-x:hidden;}
+/* "hidden" creates a scroll container that can prevent sticky headers from sticking. */
+html,body{margin:0;padding:0;overflow-x:clip;}
 body{background:var(--bg);}
 
 /* Reserve identical geometry for the logo and theme controls in both themes. */
