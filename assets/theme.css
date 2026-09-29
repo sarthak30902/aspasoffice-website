@@ -22,18 +22,64 @@
 html,body{margin:0;padding:0;overflow-x:hidden;}
 body{background:var(--bg);}
 
-[data-theme="dark"] #aspas-logo-wrap{
-  background:#ffffff;
-  padding:0;
-  border-radius:12px;
+/* Reserve identical geometry for the logo and theme controls in both themes. */
+#aspas-logo-wrap{
+  display:flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  box-sizing:border-box !important;
+  width:180px !important;
+  height:54px !important;
+  flex:0 0 180px !important;
+  margin:0 !important;
+  padding:0 !important;
+  overflow:hidden !important;
+  background:#ffffff !important;
+  border-radius:12px !important;
+  transition:none !important;
+}
+#aspas-logo{
+  display:block !important;
+  width:100% !important;
+  height:100% !important;
+  flex:none !important;
+  object-fit:contain !important;
 }
 
 #aspas-theme-toggle{
-  appearance:none;-webkit-appearance:none;border:1px solid var(--border);
-  background:var(--card-bg);color:var(--text);border-radius:10px;
-  box-sizing:border-box;padding:0;width:38px;height:38px;flex:0 0 38px;
-  display:inline-flex;align-items:center;justify-content:center;
-  cursor:pointer;font-size:16px;line-height:1;
+  appearance:none;-webkit-appearance:none;
+  box-sizing:border-box;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  width:38px;height:38px;min-width:38px;min-height:38px;
+  flex:0 0 38px;
+  margin:0;padding:0;
+  border:1px solid var(--border);
+  border-radius:10px;
+  background:var(--card-bg);
+  color:var(--text);
+  line-height:1;
+  vertical-align:middle;
+  transform:none;
+  transition:none;
+  cursor:pointer;
+}
+#aspas-theme-toggle:active{transform:none;}
+#aspas-theme-toggle .aspas-theme-icon{
+  display:block;
+  width:18px;
+  height:18px;
+  flex:0 0 18px;
+  overflow:visible;
+}
+
+@media(max-width:900px){
+  #aspas-logo-wrap{
+    width:150px !important;
+    height:46px !important;
+    flex-basis:150px !important;
+  }
 }
 
 /* ---- Layout containers (replaces repeated inline width:min(...) wrappers) ---- */
