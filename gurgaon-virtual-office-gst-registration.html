@@ -64,7 +64,9 @@
 }
 </style>
 <link rel="stylesheet" href="assets/navigation.css">
+<link rel="stylesheet" href="assets/location-slideshow.css">
 <script src="assets/navigation.js" defer></script>
+<script src="assets/location-slideshow.js" defer></script>
 </head>
 <body>
 <div id="aspas-page" style="width:100%;margin:0;padding:0;background:var(--bg);color:var(--text);font-family:'Avenir Next',Avenir,'Segoe UI',Arial,Helvetica,sans-serif;line-height:1.55;">
@@ -190,11 +192,18 @@
       </div>
       <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),360px));justify-content:center;gap:20px;">
         <article style="overflow:hidden;background:var(--card-bg);border:1px solid var(--border);border-radius:18px;box-shadow:0 8px 28px rgba(10,27,54,.08);">
-          <div role="img" aria-label="Sector 38 location area in Gurgaon" style="height:160px;padding:18px;background:radial-gradient(circle at 82% 18%,rgba(244,123,52,.32),transparent 34%),linear-gradient(135deg,#12365B 0%,#0A1B36 68%,#1A4765 100%);display:flex;flex-direction:column;justify-content:space-between;color:#fff;">
-            <span style="align-self:flex-start;padding:6px 10px;border-radius:999px;background:rgba(255,255,255,.16);font-size:11px;font-weight:700;letter-spacing:.06em;">GURGAON</span>
-            <div>
-              <div style="font-size:11px;letter-spacing:.14em;color:#C5D4E5;font-weight:700;">LOCATION AREA</div>
-              <div style="margin-top:5px;font-size:27px;line-height:1.1;font-weight:700;">Sector 38</div>
+          <div class="aspas-location-slideshow" role="region" aria-roledescription="carousel" aria-label="Get Set Office Sector 38 location photos">
+            <img class="aspas-location-slide is-active" src="https://res.cloudinary.com/myhq/image/upload/q_auto/w_960/f_auto/workspaces/get-set-office-sector38gurgaon/2yfsw6.jpg" alt="Sector 38 office interior at Get Set Office, Gurgaon." loading="eager" decoding="async" aria-hidden="false">
+            <img class="aspas-location-slide" src="https://res.cloudinary.com/myhq/image/upload/q_auto/w_960/f_auto/workspaces/get-set-office-sector38gurgaon/3ghggc.jpg" alt="Sector 38 office interior at Get Set Office, Gurgaon." loading="lazy" decoding="async" aria-hidden="true">
+            <img class="aspas-location-slide" src="https://res.cloudinary.com/myhq/image/upload/q_auto/w_960/f_auto/workspaces/get-set-office-sector38gurgaon/hcve2r.jpg" alt="Sector 38 office interior at Get Set Office, Gurgaon." loading="lazy" decoding="async" aria-hidden="true">
+            <img class="aspas-location-slide" src="https://res.cloudinary.com/myhq/image/upload/q_auto/w_960/f_auto/workspaces/get-set-office-sector38gurgaon/3a8gmm.jpg" alt="Sector 38 office interior at Get Set Office, Gurgaon." loading="lazy" decoding="async" aria-hidden="true">
+            <button class="aspas-location-slideshow-control" type="button" aria-label="Pause location photo slideshow" aria-pressed="false">Ⅱ</button>
+            <div class="aspas-location-overlay" aria-hidden="true">
+              <span class="aspas-location-label">GURGAON</span>
+              <div>
+                <div class="aspas-location-area-kicker">LOCATION AREA</div>
+                <div class="aspas-location-area-name">Sector 38</div>
+              </div>
             </div>
           </div>
           <div style="padding:20px;">
