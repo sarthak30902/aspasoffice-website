@@ -7,19 +7,14 @@
 
       var index=0;
       var timer=null;
-      var manuallyPaused=false;
+      var manuallyPaused=!!(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches);
       var pointerPaused=false;
-      var focusPaused=false;
-      var reduceMotion=window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-      function isPaused(){
-        return manuallyPaused || pointerPaused || focusPaused || reduceMotion || document.hidden;
-      }
+      function isPaused(){return manuallyPaused || pointerPaused || document.hidden;}
       function paintControl(){
         if(!control) return;
-        var paused=isPaused();
-        control.textContent=paused ? '▶' : 'Ⅱ';
-        control.setAttribute('aria-label',paused ? 'Play location photo slideshow' : 'Pause location photo slideshow');
+        control.textContent=manuallyPaused ? '▶' : 'Ⅱ';
+        control.setAttribute('aria-label',manuallyPaused ? 'Play location photo slideshow' : 'Pause location photo slideshow');
         control.setAttribute('aria-pressed',String(manuallyPaused));
       }
       function showNext(){
@@ -47,10 +42,6 @@
       }
       slideshow.addEventListener('mouseenter',function(){pointerPaused=true;syncTimer();});
       slideshow.addEventListener('mouseleave',function(){pointerPaused=false;syncTimer();});
-      slideshow.addEventListener('focusin',function(){focusPaused=true;syncTimer();});
-      slideshow.addEventListener('focusout',function(event){
-        if(!slideshow.contains(event.relatedTarget)){focusPaused=false;syncTimer();}
-      });
       document.addEventListener('visibilitychange',syncTimer);
       syncTimer();
     });
