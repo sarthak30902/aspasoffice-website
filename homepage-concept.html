@@ -25,19 +25,40 @@
 @media(max-width:600px){.container{width:calc(100% - 30px)}.topline .container{justify-content:center;text-align:center}.topline span:last-child{display:none}.hero{padding:42px 0}.hero-photo{height:320px}.hero-caption{left:19px;bottom:20px}.hero-caption h2{font-size:23px}.hero-note{left:19px;top:19px}.section{padding:56px 0}.section-head{display:block}.section-head p{margin-top:9px}.cards,.service-list,.steps-grid,.faq-grid{grid-template-columns:1fr}.card p{min-height:0}.benefit-grid{padding:13px 0}.benefit{padding:4px 0}.cta{padding-bottom:48px}.cta-box{display:block;padding:24px}.cta-box .actions{margin-top:15px}.footer-row{align-items:flex-start;flex-direction:column}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{transition:none!important}}
 </style>
+<style>
+.enquiry{background:var(--paper);padding:74px 0}
+.enquiry-grid{display:grid;grid-template-columns:.78fr 1.22fr;gap:48px;align-items:start}
+.enquiry-copy p{max-width:430px;color:var(--muted);font-size:13px;line-height:1.8}
+.contact-points{display:grid;gap:12px;margin-top:25px;color:var(--muted);font-size:12px}
+.contact-points a{color:var(--ink);font-weight:700}
+.quote-form{padding:25px;border:1px solid var(--line);border-radius:18px;background:var(--white);box-shadow:var(--shadow)}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.form-field{display:grid;gap:6px;margin-bottom:14px}
+.form-field.full{grid-column:1/-1}
+.form-field label{font-size:11px;font-weight:700;color:var(--muted)}
+.form-field input,.form-field select,.form-field textarea{width:100%;min-height:44px;padding:11px 12px;border:1px solid var(--line);border-radius:10px;background:var(--paper);color:var(--ink);font:12px 'DM Sans',Arial,sans-serif}
+.form-field textarea{min-height:100px;resize:vertical}
+.form-field input:focus,.form-field select:focus,.form-field textarea:focus{outline:2px solid #f47b3477;border-color:var(--orange)}
+.form-submit{width:100%;min-height:46px;border:0;cursor:pointer}
+.form-submit:disabled{opacity:.65;cursor:wait}
+.form-note{font-size:9px;line-height:1.5;color:var(--muted);margin:10px 0 0}
+.form-message{display:none;margin-top:12px;padding:11px 12px;border-radius:10px;background:#eaf6ef;color:#246543;font-size:11px}
+@media(max-width:900px){.enquiry-grid{grid-template-columns:1fr;gap:20px}}
+@media(max-width:600px){.enquiry{padding:54px 0}.quote-form{padding:17px}.form-grid{grid-template-columns:1fr;gap:0}.form-field.full{grid-column:auto}}
+</style>
 </head>
 <body>
 <div class="topline"><div class="container"><span>Virtual office &amp; business address options across <strong>Delhi NCR</strong></span><span>Talk to our team: <strong>+91 96251 20128</strong></span></div></div>
 <header class="header"><div class="container head">
  <a class="logo" href="#top" aria-label="ASPAS Office home"><img src="https://res.cloudinary.com/yhud6ygb/image/upload/f_auto,q_auto/stretch_logo-removebg-preview" alt="ASPAS Office"></a>
  <button class="theme" id="theme" type="button" aria-label="Toggle dark mode">☾</button><button class="menu" id="menuButton" type="button" aria-expanded="false">MENU</button>
- <nav class="nav" id="nav" aria-label="Main navigation"><a href="#top">Home</a><a href="#services">Services</a><a href="#locations">Locations</a><a href="#how">How it works</a><a href="#faq">FAQ</a><a class="btn btn-dark" href="#contact">Get a quote</a><a class="btn btn-green" href="https://wa.me/919625120128?text=Hi%20ASPAS%20Office%2C%20I%27d%20like%20to%20know%20about%20virtual%20office%20options." target="_blank" rel="noopener">WhatsApp us</a></nav>
+ <nav class="nav" id="nav" aria-label="Main navigation"><a href="#top">Home</a><a href="#services">Services</a><a href="#locations">Locations</a><a href="#how">How it works</a><a href="#faq">FAQ</a><a class="btn btn-dark" href="#enquiry">Get a quote</a><a class="btn btn-green" href="https://wa.me/919625120128?text=Hi%20ASPAS%20Office%2C%20I%27d%20like%20to%20know%20about%20virtual%20office%20options." target="_blank" rel="noopener">WhatsApp us</a></nav>
 </div></header>
 <main id="top">
 <section class="hero"><div class="container hero-grid"><div>
  <div class="eyebrow">Virtual offices · Delhi NCR</div><h1>A professional address for your <span>next chapter.</span></h1>
  <p class="lead">Explore virtual office and business address options in Delhi, Gurgaon and Noida. Tell us what you need the address for, and our team can confirm current locations, documents and plan availability.</p>
- <div class="actions"><a class="btn btn-dark" href="#locations">Explore locations <span aria-hidden="true">↗</span></a><a class="btn btn-outline" href="#contact">Talk to our team</a></div>
+ <div class="actions"><a class="btn btn-dark" href="#locations">Explore locations <span aria-hidden="true">↗</span></a><a class="btn btn-outline" href="#enquiry">Talk to our team</a></div>
  <div class="points"><span>Location-specific options</span><span>Human support</span><span>Clear document guidance</span></div>
 </div><div class="hero-photo"><img src="https://res.cloudinary.com/myhq/image/upload/q_auto,w_960/f_auto/workspaces/get-set-office-sector38gurgaon/2yfsw6.jpg" alt="Get Set Office partner workspace in Sector 38, Gurgaon" fetchpriority="high"><div class="hero-note">● LOCATION SPOTLIGHT · GURGAON</div><div class="hero-caption"><small>A business address with room to grow</small><h2>Gurgaon · Sector 38</h2><p>Explore partner office options and confirm what your selected plan supports.</p></div></div></div></section>
 <section class="benefits" aria-label="Service overview"><div class="container benefit-grid"><div class="benefit"><b>Delhi NCR locations</b><small>Delhi · Gurgaon · Noida</small></div><div class="benefit"><b>Registration support</b><small>Where available by plan</small></div><div class="benefit"><b>Business mail</b><small>Confirm handling options</small></div><div class="benefit"><b>Meeting spaces</b><small>Check location availability</small></div></div></section>
@@ -49,15 +70,65 @@
   <article class="card"><div class="noida-image"><strong>⌖</strong><span><small>Delhi NCR</small>Noida location options</span></div><div class="card-body"><div class="meta"><span class="tag">Delhi NCR</span><span class="partner">Ask for availability</span></div><h3>Virtual office in Noida</h3><p>Tell us your business requirement and our team can confirm current Noida options and documentation.</p><div class="card-foot"><span class="price">Pricing<b>Enquire for price</b></span><a class="btn btn-dark" href="https://www.aspasoffice.com/noida-virtual-office-gst-registration.html">View Noida →</a></div></div></article>
  </div><p class="note">Partner workspace photos are illustrative of the listed partner locations. Availability and included services can change by location and plan.</p>
 </div></section>
-<section class="section services" id="services"><div class="container services-grid"><div><div class="kicker">Solutions for growing businesses</div><h2>One address. Support that fits your next step.</h2><p class="lead" style="font-size:13px">Choose the service you need, then check which locations and plans support it. We’ll help you understand the available options before you decide.</p><a class="btn btn-outline" href="#contact">Ask about a service →</a></div><div><div class="service-list"><article class="service"><span class="icon">◎</span><h3>Virtual office</h3><p>A professional business address option, with availability confirmed by location and plan.</p></article><article class="service"><span class="icon">▦</span><h3>GST registration address</h3><p>Selected address plans may support GST documentation, subject to applicable requirements.</p></article><article class="service"><span class="icon">↗</span><h3>Company registration</h3><p>Ask which locations and plans may support company or registered-address documentation.</p></article><article class="service"><span class="icon">✉</span><h3>Mail and meeting spaces</h3><p>Mail handling and meeting-space options vary by partner location and plan.</p></article></div><p class="fine">Address suitability and required documents depend on the selected location, plan and applicable authority requirements. Confirm before filing.</p></div></div></section>
+<section class="section services" id="services"><div class="container services-grid"><div><div class="kicker">Solutions for growing businesses</div><h2>One address. Support that fits your next step.</h2><p class="lead" style="font-size:13px">Choose the service you need, then check which locations and plans support it. We’ll help you understand the available options before you decide.</p><a class="btn btn-outline" href="#enquiry">Ask about a service →</a></div><div><div class="service-list"><article class="service"><span class="icon">◎</span><h3>Virtual office</h3><p>A professional business address option, with availability confirmed by location and plan.</p></article><article class="service"><span class="icon">▦</span><h3>GST registration address</h3><p>Selected address plans may support GST documentation, subject to applicable requirements.</p></article><article class="service"><span class="icon">↗</span><h3>Company registration</h3><p>Ask which locations and plans may support company or registered-address documentation.</p></article><article class="service"><span class="icon">✉</span><h3>Mail and meeting spaces</h3><p>Mail handling and meeting-space options vary by partner location and plan.</p></article></div><p class="fine">Address suitability and required documents depend on the selected location, plan and applicable authority requirements. Confirm before filing.</p></div></div></section>
 <section class="section steps" id="how"><div class="container"><div class="section-head"><div><div class="kicker">Simple next steps</div><h2>Tell us what your business needs.</h2></div><p>We’ll help you check location fit and available documentation before you choose a plan.</p></div><div class="steps-grid"><article class="step"><small>01 / SHARE</small><h3>Tell us your city and use case</h3><p>Share if you need an address, GST support, company documents, mail handling or meeting space.</p></article><article class="step"><small>02 / CONFIRM</small><h3>Review available options</h3><p>We’ll confirm current location, plan details, included documents and requirements to check.</p></article><article class="step"><small>03 / GET STARTED</small><h3>Choose your next step</h3><p>Once you’ve reviewed the details, our team can guide you through onboarding.</p></article></div></div></section>
 <section class="section" id="faq"><div class="container"><div class="section-head"><div><div class="kicker">Good to know</div><h2>Questions before you choose?</h2></div><p>Get the location and document details confirmed for your business requirement.</p></div><div class="faq-grid"><article class="faq"><h3>Can I use a virtual office address for GST registration?</h3><p>Selected locations and plans may support GST registration documentation. Suitability depends on the address and applicable requirements, so confirm before filing.</p></article><article class="faq"><h3>What documents are included?</h3><p>Documents vary by location and plan. Ask our team for the current list for the exact address you’re considering.</p></article><article class="faq"><h3>Are these ASPAS-owned offices?</h3><p>Some options are provided through workspace partners. We’ll identify the partner location and explain what is available with the selected plan.</p></article><article class="faq"><h3>Can I visit or book a meeting room?</h3><p>Meeting-space availability depends on the partner location and plan. Contact us to confirm what is currently available.</p></article></div></div></section>
 <section class="cta" id="contact"><div class="container"><div class="cta-box"><div><div class="eyebrow">Let’s find your address</div><h2>Tell us where you want to grow.</h2><p>Share your city and business requirement. We’ll help check current availability.</p></div><div class="actions"><a class="btn btn-green" href="https://wa.me/919625120128?text=Hi%20ASPAS%20Office%2C%20I%27m%20looking%20for%20a%20virtual%20office.%20My%20preferred%20city%20is%20" target="_blank" rel="noopener">WhatsApp the team ↗</a><a class="btn btn-outline" href="mailto:connect@aspasoffice.com?subject=Virtual%20office%20enquiry">Email us</a></div></div></div></section>
+<section class="enquiry" id="enquiry"><div class="container enquiry-grid">
+ <div class="enquiry-copy"><div class="kicker">Get a tailored quote</div><h2>Tell us what your business needs.</h2><p>Share your preferred location, service and how you intend to use the address. Our team will help confirm the available option and next steps.</p><div class="contact-points"><a href="mailto:connect@aspasoffice.com">✉ &nbsp;connect@aspasoffice.com</a><a href="tel:+919625120128">☎ &nbsp;+91 96251 20128</a><span>We’ll use your details to respond to this enquiry.</span></div></div>
+ <form class="quote-form" id="quoteForm">
+  <div class="form-grid">
+   <div class="form-field"><label for="quoteName">Name *</label><input id="quoteName" name="name" autocomplete="name" required placeholder="Your name"></div>
+   <div class="form-field"><label for="quotePhone">Phone number *</label><input id="quotePhone" name="phone" type="tel" autocomplete="tel" required placeholder="+91..."></div>
+   <div class="form-field full"><label for="quoteEmail">Email *</label><input id="quoteEmail" name="email" type="email" autocomplete="email" required placeholder="you@company.com"></div>
+   <div class="form-field full"><label for="quoteLocation">Preferred location *</label><select id="quoteLocation" name="location" required><option value="">Select a location</option><option>Delhi — Green Park</option><option>Gurgaon — Sector 38</option><option>Noida</option><option>Another location</option></select></div>
+   <div class="form-field full"><label for="quotePlan">Service you’re interested in *</label><select id="quotePlan" name="plan" required><option value="">Select a service</option><option>Company Registration Address</option><option>GST Registration Address</option><option>Mail Handling &amp; Professional Business Address</option><option>Meeting Space</option><option>Not sure yet — please advise</option></select></div>
+   <div class="form-field full"><label for="quoteNotes">Notes / requirement</label><textarea id="quoteNotes" name="notes" placeholder="Tell us about your business, timeline or any questions."></textarea></div>
+  </div>
+  <button class="btn btn-dark form-submit" id="quoteSubmit" type="submit">Submit enquiry</button>
+  <div class="form-message" id="quoteMessage" role="status" aria-live="polite"></div>
+  <p class="form-note">By submitting, you share these details with ASPAS Office so the team can respond to your enquiry.</p>
+ </form>
+</div></section>
 </main>
 <footer class="footer"><div class="container footer-row"><a class="footer-logo" href="#top" aria-label="ASPAS Office home"><img src="https://res.cloudinary.com/yhud6ygb/image/upload/f_auto,q_auto/stretch_logo-removebg-preview" alt="ASPAS Office"></a><div class="footer-links"><a href="#services">Services</a><a href="#locations">Locations</a><a href="#faq">FAQ</a><a href="mailto:connect@aspasoffice.com">connect@aspasoffice.com</a><a href="tel:+919625120128">+91 96251 20128</a></div><small>© 2026 ASPAS Office · Homepage concept for testing</small></div></footer>
 <script>
 (function(){var root=document.documentElement,theme=document.getElementById('theme');try{if(localStorage.getItem('aspas-theme')==='dark')root.setAttribute('data-theme','dark')}catch(e){}function paint(){theme.textContent=root.getAttribute('data-theme')==='dark'?'☼':'☾'}paint();theme.addEventListener('click',function(){var dark=root.getAttribute('data-theme')!=='dark';if(dark)root.setAttribute('data-theme','dark');else root.removeAttribute('data-theme');try{localStorage.setItem('aspas-theme',dark?'dark':'light')}catch(e){}paint()});var nav=document.getElementById('nav'),menu=document.getElementById('menuButton');menu.addEventListener('click',function(){var open=nav.classList.toggle('open');menu.setAttribute('aria-expanded',String(open))});nav.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){nav.classList.remove('open');menu.setAttribute('aria-expanded','false')})});var reduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches;document.querySelectorAll('[data-slideshow]').forEach(function(box){var imgs=[].slice.call(box.querySelectorAll('img')),dots=[].slice.call(box.querySelectorAll('.dots i')),button=box.querySelector('.slide-toggle');if(imgs.length<2)return;var index=0,paused=reduced,timer=null;function show(n){imgs[index].classList.remove('active');dots[index].classList.remove('on');index=n%imgs.length;imgs[index].classList.add('active');dots[index].classList.add('on')}function start(){if(!paused&&!timer)timer=setInterval(function(){show(index+1)},4200)}function stop(){if(timer){clearInterval(timer);timer=null}}button.addEventListener('click',function(){paused=!paused;button.setAttribute('aria-pressed',String(paused));button.textContent=paused?'▶':'Ⅱ';button.setAttribute('aria-label',(paused?'Play ':'Pause ')+box.getAttribute('aria-label'));paused?stop():start()});box.addEventListener('mouseenter',stop);box.addEventListener('mouseleave',start);box.addEventListener('focusin',stop);box.addEventListener('focusout',start);if(paused)button.textContent='▶';else start()})})();
 </script>
+<script>
+(function(){
+ const form=document.getElementById('quoteForm');
+ if(!form)return;
+ const button=document.getElementById('quoteSubmit');
+ const message=document.getElementById('quoteMessage');
+ const endpoint='https://script.google.com/macros/s/AKfycbwy99xObV3pVaiqJWHUI__7fpE-nAaU3BEXDJ5TfiImSLs-JpROQ-R72stuLaKWrEfs1Q/exec';
+ form.addEventListener('submit',async function(event){
+  event.preventDefault();
+  button.disabled=true;
+  button.textContent='Sending…';
+  message.style.display='none';
+  const data=new URLSearchParams();
+  ['name','phone','email','location','plan','notes'].forEach(function(key){
+   data.set(key,form.elements.namedItem(key).value.trim());
+  });
+  try{
+   await fetch(endpoint,{method:'POST',mode:'no-cors',headers:{'Content-Type':'application/x-www-form-urlencoded;charset=UTF-8'},body:data.toString()});
+   form.reset();
+   message.textContent='Thank you. Your enquiry has been submitted. The ASPAS team will get back to you.';
+   message.style.display='block';
+  }catch(error){
+   message.textContent='We could not submit the form right now. Please email connect@aspasoffice.com or WhatsApp the team.';
+   message.style.display='block';
+   message.style.background='#fceeed';
+   message.style.color='#8c3330';
+  }finally{
+   button.disabled=false;
+   button.textContent='Submit enquiry';
+  }
+ });
+})();
+</script>
 </body>
 </html>
+
 
