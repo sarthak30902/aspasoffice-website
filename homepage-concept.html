@@ -176,13 +176,14 @@
  const input=document.getElementById('supportInput');
  const thread=document.getElementById('supportThread');
  const body=document.getElementById('supportBody');
- const endpoint=''; // Set to a secure server-side chat endpoint when one is deployed. Never put an OpenAI API key here.
+ const endpoint=window.ASPAS_CHAT_ENDPOINT||''; // This is the public function URL, never an API key.
+ const history=[];
  function setOpen(open){panel.classList.toggle('open',open);launcher.setAttribute('aria-expanded',String(open));launcher.setAttribute('aria-label',open?'Close ASPAS support chat':'Open ASPAS support chat');if(open)input.focus()}
  launcher.addEventListener('click',function(){setOpen(!panel.classList.contains('open'))});
  close.addEventListener('click',function(){setOpen(false);launcher.focus()});
  document.addEventListener('keydown',function(event){if(event.key==='Escape'&&panel.classList.contains('open'))setOpen(false)});
  function bubble(text,kind){const item=document.createElement('div');item.className='support-bubble'+(kind==='user'?' user':'');item.textContent=text;thread.appendChild(item);body.scrollTop=body.scrollHeight;return item}
- async function ask(text){bubble(text,'user');if(!endpoint){bubble('ChatGPT is not connected in this preview yet. You can reach the ASPAS team on WhatsApp using the link below.','assistant');return}const pending=bubble('Thinking…','assistant');try{const response=await fetch(endpoint,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({message:text})});if(!response.ok)throw new Error('Chat service unavailable');const result=await response.json();pending.textContent=typeof result.reply==='string'?result.reply:'Sorry, I could not prepare a reply. Please contact our team.'}catch(error){pending.textContent='The chat service is temporarily unavailable. Please contact our team on WhatsApp.'}body.scrollTop=body.scrollHeight}
+ async function ask(text){bubble(text,'user');history.push({role:'user',content:text});if(!endpoint){bubble('ChatGPT is not connected in this preview yet. You can reach the ASPAS team on WhatsApp using the link below.','assistant');return}const pending=bubble('Thinking…','assistant');try{const response=await fetch(endpoint,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({message:text,history:history.slice(-8)})});if(!response.ok)throw new Error('Chat service unavailable');const result=await response.json();const reply=typeof result.reply==='string'?result.reply:'Sorry, I could not prepare a reply. Please contact our team.';pending.textContent=reply;history.push({role:'assistant',content:reply})}catch(error){pending.textContent='The chat service is temporarily unavailable. Please contact our team on WhatsApp.'}body.scrollTop=body.scrollHeight}
  form.addEventListener('submit',function(event){event.preventDefault();const text=input.value.trim();if(!text)return;input.value='';ask(text)});
  document.getElementById('supportSuggestions').addEventListener('click',function(event){const button=event.target.closest('button');if(button)ask(button.textContent)});
 })();
