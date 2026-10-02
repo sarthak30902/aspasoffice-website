@@ -46,6 +46,35 @@
 @media(max-width:900px){.enquiry-grid{grid-template-columns:1fr;gap:20px}}
 @media(max-width:600px){.enquiry{padding:54px 0}.quote-form{padding:17px}.form-grid{grid-template-columns:1fr;gap:0}.form-field.full{grid-column:auto}}
 </style>
+<style>
+.support-launcher{position:fixed;right:24px;bottom:24px;z-index:30;width:60px;height:60px;border:0;border-radius:50%;display:grid;place-items:center;background:var(--green);color:#fff;box-shadow:0 12px 32px #07172b42;cursor:pointer;transition:transform .2s,box-shadow .2s}
+.support-launcher:hover{transform:translateY(-3px);box-shadow:0 16px 36px #07172b55}
+.support-launcher svg{width:27px;height:27px}
+.support-panel{position:fixed;right:24px;bottom:98px;z-index:30;width:min(380px,calc(100vw - 30px));height:min(560px,calc(100dvh - 125px));display:none;flex-direction:column;overflow:hidden;border:1px solid var(--line);border-radius:20px;background:var(--white);color:var(--ink);box-shadow:0 22px 70px #07172b38}
+.support-panel.open{display:flex;animation:support-in .2s ease-out}
+@keyframes support-in{from{opacity:0;transform:translateY(9px)}to{opacity:1;transform:translateY(0)}}
+.support-head{display:flex;align-items:center;gap:11px;padding:15px 16px;background:var(--navy);color:white}
+.support-avatar{width:38px;height:38px;display:grid;place-items:center;border-radius:13px;background:#ffffff1a;color:#ffb37e;font-weight:800}
+.support-head-copy{min-width:0;flex:1}.support-head-copy strong{display:block;font:700 13px Manrope,'DM Sans',sans-serif}.support-head-copy small{font-size:10px;color:#c3cfdf}
+.support-close{width:34px;height:34px;border:0;border-radius:9px;background:#ffffff14;color:#fff;font-size:20px;cursor:pointer}
+.support-body{flex:1;overflow:auto;padding:17px;background:var(--paper)}
+.support-intro{padding:14px;border:1px solid var(--line);border-radius:14px;background:var(--white);font-size:12px;line-height:1.65}
+.support-intro strong{display:block;margin-bottom:4px;font-size:13px}
+.support-suggestions{display:flex;flex-wrap:wrap;gap:7px;margin-top:12px}
+.support-suggestions button{padding:8px 10px;border:1px solid var(--line);border-radius:18px;background:var(--white);color:var(--ink);font-size:10px;cursor:pointer}
+.support-suggestions button:hover{border-color:var(--orange);color:var(--orange)}
+.support-thread{display:grid;gap:10px;margin-top:13px}
+.support-bubble{max-width:88%;padding:10px 12px;border:1px solid var(--line);border-radius:13px;background:var(--white);font-size:11px;line-height:1.6;overflow-wrap:anywhere}
+.support-bubble.user{justify-self:end;border-color:var(--navy);background:var(--navy);color:#fff}
+.support-foot{padding:12px 14px 13px;border-top:1px solid var(--line);background:var(--white)}
+.support-form{display:flex;gap:8px}
+.support-form input{min-width:0;flex:1;padding:11px 12px;border:1px solid var(--line);border-radius:11px;background:var(--paper);color:var(--ink);font:12px 'DM Sans',Arial,sans-serif}
+.support-form input:focus{outline:2px solid #f47b3477;border-color:var(--orange)}
+.support-form button{width:42px;border:0;border-radius:11px;background:var(--green);color:white;font-size:17px;cursor:pointer}
+.support-note{margin:8px 1px 0;color:var(--muted);font-size:9px;line-height:1.45}
+@media(max-width:600px){.support-launcher{right:16px;bottom:16px;width:56px;height:56px}.support-panel{right:12px;bottom:82px;width:calc(100vw - 24px);height:min(560px,calc(100dvh - 100px))}}
+@media(prefers-reduced-motion:reduce){.support-panel.open{animation:none}.support-launcher{transition:none}}
+</style>
 </head>
 <body>
 <div class="topline"><div class="container"><span>Virtual office &amp; business address options across <strong>Delhi NCR</strong></span><span>Talk to our team: <strong>+91 96251 20128</strong></span></div></div>
@@ -91,6 +120,16 @@
  </form>
 </div></section>
 </main>
+<button class="support-launcher" id="supportLauncher" type="button" aria-label="Open ASPAS support chat" aria-expanded="false" aria-controls="supportPanel">
+ <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 11.5a7.5 7.5 0 0 1-7.5 7.5 8 8 0 0 1-3.5-.82L4 20l1.22-4.02A7.5 7.5 0 1 1 20 11.5Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M8 12h.01M12 12h.01M16 12h.01" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg>
+</button>
+<section class="support-panel" id="supportPanel" role="dialog" aria-label="ASPAS Office support chat" aria-modal="false">
+ <div class="support-head"><div class="support-avatar" aria-hidden="true">A</div><div class="support-head-copy"><strong>ASPAS Office Support</strong><small id="supportStatus">Chat preview · AI connection pending</small></div><button class="support-close" id="supportClose" type="button" aria-label="Close support chat">×</button></div>
+ <div class="support-body" id="supportBody" aria-live="polite"><div class="support-intro"><strong>Hi! How can we help?</strong>Ask about our locations, services, or getting a quote. For current availability and document requirements, our team can confirm the details.</div>
+  <div class="support-suggestions" id="supportSuggestions"><button type="button">What locations do you cover?</button><button type="button">Can I use it for GST?</button><button type="button">How do I get pricing?</button></div><div class="support-thread" id="supportThread"></div>
+ </div>
+ <div class="support-foot"><form class="support-form" id="supportForm"><input id="supportInput" type="text" maxlength="1000" autocomplete="off" placeholder="Type your question…" aria-label="Your message"><button type="submit" aria-label="Send message">↑</button></form><p class="support-note">This testing preview is not connected to ChatGPT yet. For an immediate reply, <a href="https://wa.me/919625120128?text=Hi%20ASPAS%20Office%2C%20I%20have%20a%20question." target="_blank" rel="noopener">message our team on WhatsApp</a>.</p></div>
+</section>
 <footer class="footer"><div class="container footer-row"><a class="footer-logo" href="#top" aria-label="ASPAS Office home"><img src="https://res.cloudinary.com/yhud6ygb/image/upload/f_auto,q_auto/stretch_logo-removebg-preview" alt="ASPAS Office"></a><div class="footer-links"><a href="#services">Services</a><a href="#locations">Locations</a><a href="#faq">FAQ</a><a href="mailto:connect@aspasoffice.com">connect@aspasoffice.com</a><a href="tel:+919625120128">+91 96251 20128</a></div><small>© 2026 ASPAS Office · Homepage concept for testing</small></div></footer>
 <script>
 (function(){var root=document.documentElement,theme=document.getElementById('theme');try{if(localStorage.getItem('aspas-theme')==='dark')root.setAttribute('data-theme','dark')}catch(e){}function paint(){theme.textContent=root.getAttribute('data-theme')==='dark'?'☼':'☾'}paint();theme.addEventListener('click',function(){var dark=root.getAttribute('data-theme')!=='dark';if(dark)root.setAttribute('data-theme','dark');else root.removeAttribute('data-theme');try{localStorage.setItem('aspas-theme',dark?'dark':'light')}catch(e){}paint()});var nav=document.getElementById('nav'),menu=document.getElementById('menuButton');menu.addEventListener('click',function(){var open=nav.classList.toggle('open');menu.setAttribute('aria-expanded',String(open))});nav.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){nav.classList.remove('open');menu.setAttribute('aria-expanded','false')})});var reduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches;document.querySelectorAll('[data-slideshow]').forEach(function(box){var imgs=[].slice.call(box.querySelectorAll('img')),dots=[].slice.call(box.querySelectorAll('.dots i')),button=box.querySelector('.slide-toggle');if(imgs.length<2)return;var index=0,paused=reduced,timer=null;function show(n){imgs[index].classList.remove('active');dots[index].classList.remove('on');index=n%imgs.length;imgs[index].classList.add('active');dots[index].classList.add('on')}function start(){if(!paused&&!timer)timer=setInterval(function(){show(index+1)},4200)}function stop(){if(timer){clearInterval(timer);timer=null}}button.addEventListener('click',function(){paused=!paused;button.setAttribute('aria-pressed',String(paused));button.textContent=paused?'▶':'Ⅱ';button.setAttribute('aria-label',(paused?'Play ':'Pause ')+box.getAttribute('aria-label'));paused?stop():start()});box.addEventListener('mouseenter',stop);box.addEventListener('mouseleave',start);box.addEventListener('focusin',stop);box.addEventListener('focusout',start);if(paused)button.textContent='▶';else start()})})();
@@ -126,6 +165,26 @@
    button.textContent='Submit enquiry';
   }
  });
+})();
+</script>
+<script>
+(function(){
+ const launcher=document.getElementById('supportLauncher');
+ const panel=document.getElementById('supportPanel');
+ const close=document.getElementById('supportClose');
+ const form=document.getElementById('supportForm');
+ const input=document.getElementById('supportInput');
+ const thread=document.getElementById('supportThread');
+ const body=document.getElementById('supportBody');
+ const endpoint=''; // Set to a secure server-side chat endpoint when one is deployed. Never put an OpenAI API key here.
+ function setOpen(open){panel.classList.toggle('open',open);launcher.setAttribute('aria-expanded',String(open));launcher.setAttribute('aria-label',open?'Close ASPAS support chat':'Open ASPAS support chat');if(open)input.focus()}
+ launcher.addEventListener('click',function(){setOpen(!panel.classList.contains('open'))});
+ close.addEventListener('click',function(){setOpen(false);launcher.focus()});
+ document.addEventListener('keydown',function(event){if(event.key==='Escape'&&panel.classList.contains('open'))setOpen(false)});
+ function bubble(text,kind){const item=document.createElement('div');item.className='support-bubble'+(kind==='user'?' user':'');item.textContent=text;thread.appendChild(item);body.scrollTop=body.scrollHeight;return item}
+ async function ask(text){bubble(text,'user');if(!endpoint){bubble('ChatGPT is not connected in this preview yet. You can reach the ASPAS team on WhatsApp using the link below.','assistant');return}const pending=bubble('Thinking…','assistant');try{const response=await fetch(endpoint,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({message:text})});if(!response.ok)throw new Error('Chat service unavailable');const result=await response.json();pending.textContent=typeof result.reply==='string'?result.reply:'Sorry, I could not prepare a reply. Please contact our team.'}catch(error){pending.textContent='The chat service is temporarily unavailable. Please contact our team on WhatsApp.'}body.scrollTop=body.scrollHeight}
+ form.addEventListener('submit',function(event){event.preventDefault();const text=input.value.trim();if(!text)return;input.value='';ask(text)});
+ document.getElementById('supportSuggestions').addEventListener('click',function(event){const button=event.target.closest('button');if(button)ask(button.textContent)});
 })();
 </script>
 </body>
