@@ -53,20 +53,21 @@ body{background:var(--bg);}
   display:inline-flex;
   align-items:center;
   justify-content:center;
-  width:38px;height:38px;min-width:38px;min-height:38px;
-  flex:0 0 38px;
+  width:42px;height:42px;min-width:42px;min-height:42px;
+  flex:0 0 42px;
   margin:0;padding:0;
-  border:1px solid var(--border);
-  border-radius:10px;
-  background:var(--card-bg);
-  color:var(--text);
+  border:1px solid #F47B34;
+  border-radius:11px;
+  background:rgba(244,123,52,.12);
+  color:#D95F1E;
+  box-shadow:0 4px 13px rgba(244,123,52,.18);
   line-height:1;
   vertical-align:middle;
   transform:none;
   transition:none;
   cursor:pointer;
 }
-#aspas-theme-toggle:active{transform:none;}
+#aspas-theme-toggle:hover{background:#F47B34;color:#fff;box-shadow:0 6px 16px rgba(244,123,52,.3);}\n#aspas-theme-toggle:focus-visible{outline:3px solid rgba(244,123,52,.35);outline-offset:2px;}\n#aspas-theme-toggle:active{transform:none;}
 #aspas-theme-toggle .aspas-theme-icon{
   display:block;
   width:18px;
