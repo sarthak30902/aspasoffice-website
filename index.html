@@ -111,7 +111,7 @@
    <div class="form-field"><label for="quoteName">Name *</label><input id="quoteName" name="name" autocomplete="name" required placeholder="Your name"></div>
    <div class="form-field"><label for="quotePhone">Phone number *</label><input id="quotePhone" name="phone" type="tel" autocomplete="tel" required placeholder="+91..."></div>
    <div class="form-field full"><label for="quoteEmail">Email *</label><input id="quoteEmail" name="email" type="email" autocomplete="email" required placeholder="you@company.com"></div>
-   <div class="form-field full"><label for="quoteLocation">Preferred location *</label><select id="quoteLocation" name="location" required><option value="">Select a location</option><option>Delhi</option><option>Gurgaon</option><option>Noida</option><option>Another location</option></select></div>
+   <div class="form-field full"><label for="quoteLocation">Preferred location *</label><select id="quoteLocation" name="location" required><option value="">Select a location</option><option>Delhi — Green Park</option><option>Gurgaon — Sector 38</option><option>Noida</option><option>Another location</option></select></div>
    <div class="form-field full"><label for="quotePlan">Service you’re interested in *</label><select id="quotePlan" name="plan" required><option value="">Select a service</option><option>Company Registration Address</option><option>GST Registration Address</option><option>Mail Handling &amp; Professional Business Address</option><option>Meeting Space</option><option>Not sure yet — please advise</option></select></div>
    <div class="form-field full"><label for="quoteNotes">Notes / requirement</label><textarea id="quoteNotes" name="notes" placeholder="Tell us about your business, timeline or any questions."></textarea></div>
   </div>
@@ -121,7 +121,7 @@
  </form>
 </div></section>
 </main>
-<footer class="footer"><div class="container footer-row"><a class="footer-logo" href="#top" aria-label="ASPAS Office home"><img src="https://res.cloudinary.com/yhud6ygb/image/upload/f_auto,q_auto/stretch_logo-removebg-preview" alt="ASPAS Office"></a><div class="footer-links"><a href="#services">Services</a><a href="#locations">Locations</a><a href="#faq">FAQ</a><a href="mailto:connect@aspasoffice.com">connect@aspasoffice.com</a><a href="tel:+919625120128">+91 96251 20128</a></div><small>© 2026 ASPAS Office · ASPAS Office</small></div></footer>
+<footer class="footer"><div class="container footer-row"><a class="footer-logo" href="#top" aria-label="ASPAS Office home"><img src="https://res.cloudinary.com/yhud6ygb/image/upload/f_auto,q_auto/stretch_logo-removebg-preview" alt="ASPAS Office"></a><div class="footer-links"><a href="#services">Services</a><a href="#locations">Locations</a><a href="#faq">FAQ</a><a href="mailto:connect@aspasoffice.com">connect@aspasoffice.com</a><a href="tel:+919625120128">+91 96251 20128</a><a href="/terms-and-conditions/">Terms &amp; Conditions</a><a href="/privacy-policy/">Privacy Policy</a><a href="/refund-cancellation-policy/">Refunds &amp; Cancellations</a></div><small>© 2026 ASPAS Office · ASPAS Office</small></div></footer>
 <script src="/concept/site.js" defer></script>
 <script>
 (function(){
@@ -129,7 +129,7 @@
  if(!form)return;
  const button=document.getElementById('quoteSubmit');
  const message=document.getElementById('quoteMessage');
- const endpoint='https://script.google.com/macros/s/AKfycbwy99xObV3pVaiqJWHUI__7fpE-nAaU3BEXDJ5TfiImSLs-JpROQ-R72stuLaKWrEfs1Q/exec';
+ const endpoint='https://script.google.com/macros/s/AKfycbxx795edauzgQMyJmMrnLuIpE244gr5KDdNstOmzvkw22DNYWSHP3pdpIo1OG9rQdmVUw/exec';
  form.addEventListener('submit',async function(event){
   event.preventDefault();
   button.disabled=true;
